@@ -59,7 +59,7 @@ jobs:
           SSC_TOKEN: ${{ secrets.SSC_TOKEN }}
           SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
           
-        # 요청 command를 입력합니다.
+        # 요청 command를 입력합니다.!
         with:
           cmd: '"${SC_CLIENT_CMD}" -url ${SC_CONTROLLER_URL} start -bt none -upload -application "github_action" -version "test1" -uptoken ${SSC_UPLOAD_TOKEN}'
           
