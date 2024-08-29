@@ -57,11 +57,15 @@ jobs:
         with:
           cmd: '"${SC_CLIENT_CMD}" -url ${SC_CONTROLLER_URL} start -bt none -upload -application "github_action" -version "test1" -uptoken ${SSC_UPLOAD_TOKEN}'
 
-      - name: Export SSC vulnerability data to GitHub
-        uses: fortify/github-action/ssc-export@v1
-        env:
-          SSC_URL: ${{secrets.SSC_URL}}
-          SSC_TOKEN: ${{secrets.SSC_UPLOAD_TOKEN}}
-          SSC_APPVERSION: gsTest:1
-          TOOL_DEFINITIONS: https://ftfy.mycompany.com/tool-definitions/v1/tool-definitions.yaml.zip
+      - name: Export Results
+        uses: fortify/gha-export-vulnerabilities@v1
+        with:
+          ssc_base_url: ${{ secrets.SSC_URL }}
+          ssc_auth_token: ${{ secrets.SSC_TOKEN }}
+          ssc_version_id: ${{ secrets.SSC_VERSION_ID }}
 
+      # Import Fortify SAST results to GitHub Security Code Scanning
+      - name: Import Results
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: ./gh-fortify-sast.sarif
