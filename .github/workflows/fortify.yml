@@ -1,7 +1,7 @@
 name: Fortify Scan
 
 on:
-	# 트리거 설정
+  # 트리거 설정
   push:
     branches: [ "main" ]
   pull_request:
