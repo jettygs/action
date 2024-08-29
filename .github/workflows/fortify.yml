@@ -37,16 +37,16 @@ jobs:
           bugtracker-utility: skip
           debricked-cli: skip
 
-			# Fortify Scan Central Client가 잘 설치되었는지 확인합니다.
+	  # Fortify Scan Central Client가 잘 설치되었는지 확인합니다.
       # Fortify scancentral 명령어를 통해 Scan Central Client의 버전 확인
       - name: Run scancentral from PATH
         run: scancentral --version
 
-			# Fortify scancentral.exe가 환경변수에 잘 등록되었는지 Scan Central help 확인
+	  # Fortify scancentral.exe가 환경변수에 잘 등록되었는지 Scan Central help 확인
       - name: Run scancentral using SC_CLIENT_CMD environment variable
         run: ${SC_CLIENT_CMD} -h
 
-			# Fortify SAST Scan을 위한 env 설정 및 Scan 요청 보내기
+	  # Fortify SAST Scan을 위한 env 설정 및 Scan 요청 보내기
       - name: Start SAST scan-
         uses: fortify/github-action/internal/run@main
         
@@ -59,7 +59,7 @@ jobs:
           SSC_TOKEN: ${{ secrets.SSC_TOKEN }}
           SSC_UPLOAD_TOKEN: ${{ secrets.SSC_UPLOAD_TOKEN }}
           
-        # 요청 command를 입력합니다.!??
+        # 요청 command를 입력합니다.!
         with:
           cmd: '"${SC_CLIENT_CMD}" -url ${SC_CONTROLLER_URL} start -bt none -upload -application "github_action" -version "test1" -uptoken ${SSC_UPLOAD_TOKEN}'
           
