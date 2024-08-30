@@ -71,7 +71,7 @@ jobs:
 #          sarif_file: ./gh-fortify-sast.sarif
       # 왤케안돼~~!!
       - name: Export SSC vulnerability data to GitHub
-        uses: fortify/github-action/ssc-export@v1
+        uses: fortify/github-action/ssc-export@v4
         env:
           SSC_URL: ${{secrets.SSC_URL}}
           SSC_TOKEN: ${{secrets.SSC_DECODED_TOKEN}}
