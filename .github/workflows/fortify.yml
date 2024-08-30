@@ -10,7 +10,6 @@ on:
 
 jobs:
   Fortify-AST-Scan:
-    permissions: write-all
     runs-on: ubuntu-latest
     # 점검할 소스코드 Check Out 단계.
     steps:
@@ -70,7 +69,7 @@ jobs:
 #        uses: github/codeql-action/upload-sarif@v3
 #        with:
 #          sarif_file: ./gh-fortify-sast.sarif
-      # 왤케안돼~~!!/
+      # 왤케안돼~~!!//
       - name: Export SSC vulnerability data to GitHub
         uses: fortify/github-action/ssc-export@v1
         env:
