@@ -69,9 +69,9 @@ jobs:
 #        uses: github/codeql-action/upload-sarif@v3
 #        with:
 #          sarif_file: ./gh-fortify-sast.sarif
-      # 왤케안돼~~!!
+      # 왤케안돼~~!!/
       - name: Export SSC vulnerability data to GitHub
-        uses: fortify/github-action/ssc-export@v3
+        uses: fortify/github-action/ssc-export@v1
         env:
           SSC_URL: ${{secrets.SSC_URL}}
           SSC_TOKEN: ${{secrets.SSC_DECODED_TOKEN}}
