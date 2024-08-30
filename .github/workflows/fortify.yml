@@ -65,7 +65,14 @@ jobs:
           ssc_version_id: ${{ secrets.SSC_VERSION_ID }}
 
       # Import Fortify SAST results to GitHub Security Code Scanning
-      - name: Import Results
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: ./gh-fortify-sast.sarif
+#      - name: Import Results
+#        uses: github/codeql-action/upload-sarif@v3
+#        with:
+#          sarif_file: ./gh-fortify-sast.sarif
+      - name: Export SSC vulnerability data to GitHub
+        uses: fortify/github-action/ssc-export@v1
+        env:
+          SSC_URL: ${{secrets.SSC_URL}}
+          SSC_TOKEN: ${{secrets.SSC_TOKEN}}
+          SSC_APPVERSION: gsTest:1
+          # TOOL_DEFINITIONS: https://ftfy.mycompany.com/tool-definitions/v1/tool-definitions.yaml.zip
