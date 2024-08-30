@@ -74,7 +74,7 @@ jobs:
         uses: fortify/github-action/ssc-export@v1
         env:
           SSC_URL: ${{secrets.SSC_URL}}
-          SSC_TOKEN: ${{secrets.SSC_TOKEN}}
+          SSC_TOKEN: ${{secrets.SSC_DECODED_TOKEN}}
           SSC_USER: ${{secrets.SSC_USER}}
           SSC_PASSWORD: ${{secrets.SSC_PASSWORD}}
           SSC_APPVERSION: gsTest:1
