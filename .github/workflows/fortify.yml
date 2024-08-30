@@ -57,12 +57,12 @@ jobs:
         with:
           cmd: '"${SC_CLIENT_CMD}" -url ${SC_CONTROLLER_URL} start -bt none -upload -application "gsTest" -version "1" -uptoken ${SSC_UPLOAD_TOKEN}'
 
-      - name: Export Results
-        uses: fortify/gha-export-vulnerabilities@v1
-        with:
-          ssc_base_url: ${{ secrets.SSC_URL }}
-          ssc_auth_token: ${{ secrets.SSC_DECODED_TOKEN }}
-          ssc_version_id: ${{ secrets.SSC_VERSION_ID }}
+#      - name: Export Results
+#        uses: fortify/gha-export-vulnerabilities@v1
+#        with:
+#          ssc_base_url: ${{ secrets.SSC_URL }}
+#          ssc_auth_token: ${{ secrets.SSC_DECODED_TOKEN }}
+#          ssc_version_id: ${{ secrets.SSC_VERSION_ID }}
 
       # Import Fortify SAST results to GitHub Security Code Scanning
 #      - name: Import Results
